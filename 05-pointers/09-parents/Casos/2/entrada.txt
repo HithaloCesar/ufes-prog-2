@@ -24,4 +24,3 @@ mae: 11, pai: 2, filho: 6
 mae: 4, pai: 13, filho: 12
 mae: 7, pai: 17, filho: 14
 mae: 9, pai: 16, filho: 10
-
