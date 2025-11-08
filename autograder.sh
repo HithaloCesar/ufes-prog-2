@@ -162,7 +162,7 @@ le_arq_config () {
             elif [[ "$line" ==  "ContinuaCorrecao" ]]; then
                 config_section=0
                 CONTINUE_RESULTS=true
-                continue    
+                continue
             elif [[ "$line" ==  "MainAgrupada" ]]; then
                 MAIN_AGRUPADA=true
                 continue
@@ -185,7 +185,7 @@ le_arq_config () {
                         pesos_arquivos+=([${lines[0]}]=${lines[1]})
                     else
                         pesos_arquivos+=([$modf_grupo_arquivos,${lines[0]}]=${lines[1]})
-                    fi                
+                    fi
                 elif test $config_section == 2; then
                     readarray -d = -t lines < <(printf '%s' "$line")
                     if [[ ! " ${config_test_names[*]} " =~ " ${lines[0]} " ]]; then
@@ -515,7 +515,7 @@ executa_professor() {
                     rm $file
                 fi
             done < <(find "$DIR_INCLUDES" -type f -name "*.h" -print0)
-            
+
         fi
 
     else
@@ -644,7 +644,7 @@ executa_aluno() {
         if [ -d "$STUDENT_ANSWER_FOLDER" ]; then
             (( iteration++ ))
 
-            
+
 
             # Get the student name
             delimiter="/" # Set the delimiter
@@ -709,11 +709,11 @@ executa_aluno() {
                 sscanf "${lines[index]}" "Nota de (.*): (.*)"
                 nota_final_aluno["$student_name"]=${BASH_REMATCH[2]}
                 (( index++ ))
-                
+
                 continue
             fi
 
-            
+
 
             ##########################################
             # criando os diretorios de resultados para cada aluno
@@ -1017,7 +1017,7 @@ executa_aluno() {
                                     pesos_arquivos_deste_caso+=([$key]=${peso})
                                 fi
                             done
-                        else 
+                        else
                             for key in "${!pesos_arquivos[@]}"; do
                                 if [[ "$key" =~ (${grupo_arquivos_casos[$case_number]},).* ]]; then
                                     peso=${pesos_arquivos[$key]}
@@ -1115,11 +1115,11 @@ executa_aluno() {
 
                         if [ "$IGNORE_RESULTS" = "false" ]; then
                             for txt_file in "${!pesos_arquivos_deste_caso[@]}"; do
-                            
+
                                 gab_case_txt_file="$DIR_GAB_CASOS/$case_number/saida"/$txt_file
                                 filename=$(basename -- "$gab_case_txt_file")   # Get only the file name without the full path
                                 if [ -f "$gab_case_txt_file" ]; then         # Check if the file is a regular file (not a directory or special file)
-                                    
+
                                     txt_file_names+=("$filename")  # Add the file name to the array
                                     filename_no_ext="${filename%.*}"  # Get only the file name without the extension
                                     student_output_file=$DIR_CASE/saida/$filename
@@ -1277,7 +1277,7 @@ executa_aluno() {
                         desconto_valgrind_atual=$(echo "scale=2; 100*(1.0 - $multiplicador)" | bc)
                         sum_of_the_grades_of_current_case_minus_valgrind=$(echo "scale=2; $sum_of_the_grades_of_current_case * $multiplicador" | bc)
                         echo_e_salva_log "    - Soma dos pesos dos arquivos: $sum_of_the_grades_of_current_case (soma total) = $sum_of_the_grades_of_current_case_minus_valgrind de $peso_total_arquivos pontos."
-                        
+
                         nota_deste_caso=$(echo "scale=2; $sum_of_the_grades_of_current_case_minus_valgrind * ${pesos_casos["$case_number"]} "| bc)
                         peso_maximo_caso=$(echo "scale=2; $peso_total_arquivos * ${pesos_casos["$case_number"]} "| bc)
                         echo_e_salva_log "\t - Nota para o Caso (máximo: $peso_maximo_caso): $nota_deste_caso "
@@ -1306,7 +1306,7 @@ executa_aluno() {
             cria_arquivo_resultado_aluno $student_name
 
         fi
-        
+
     done < <(find "$DIR_RESPOSTAS" -mindepth 1 -maxdepth 1 -type d -print0 | sort -z)
 }
 
@@ -1325,4 +1325,3 @@ else
     #salva_json_saida
     # le_saida_script_correcao
 fi
-
