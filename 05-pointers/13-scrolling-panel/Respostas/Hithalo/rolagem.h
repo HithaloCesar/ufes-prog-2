@@ -5,32 +5,23 @@
 #define NUM_MAX_MSGS 10
 
 /**
- * @brief Ponteiro para função (callback)
+ * @brief Ponteiro para função que recebe um array de mensagens e o número de
+ *        mensagens para rolagem.
  *
- * @param msg Array de mensagens (parâmetro de saída).
- * @param numMsgs Número de mensagens (parâmetro de saída).
- * @param dadosUsuario Ponteiro "genérico" para os dados do usuário.
+ * @param msg Array de mensagens.
+ * @param numMsgs Número de mensagens.
  */
-typedef void (*FptrMsg)(
-    char msg[NUM_MAX_MSGS][TAM_MAX_MSG],
-    int *numMsgs,
-    void *dadosUsuario
-);
+typedef void (*FptrMsg)(char msg[NUM_MAX_MSGS][TAM_MAX_MSG], int *numMsgs);
 
 /**
- * @brief Dispara a função de rolagem de mensagens
+ * @brief Dispara a função de rolagem de mensagens.
  *
- * @param FuncMsg Ponteiro para a função de callback.
+ * @param FuncMsg Ponteiro para a função que recebe um array de mensagens e o
+ *                número de mensagens.
  * @param tamanhoDisplay Tamanho do display.
- * @param tempoFim Tempo de duração da rolagem.
- * @param dadosUsuario Um ponteiro fornecido pelo usuário (main) que será
- *                     repassado para o callback 'FuncMsg'.
+ * @param tempoFim Tempo de duração da rolagem, que diz respeito a quantidade
+ *                 de deslocamento no painel.
  */
-void RolaMsg(
-    FptrMsg FuncMsg,
-    int tamanhoDisplay,
-    int tempoFim,
-    void *dadosUsuario
-);
+void RolaMsg(FptrMsg FuncMsg, int tamanhoDisplay, int tempoFim);
 
 #endif
