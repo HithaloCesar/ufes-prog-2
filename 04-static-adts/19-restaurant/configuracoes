@@ -1,7 +1,7 @@
 Arquivos
     saida.txt=10
 Valgrind
-	desconto=0.0
+	desconto=0.5
 Validações
 	main=3.33
     alimento=3.33
