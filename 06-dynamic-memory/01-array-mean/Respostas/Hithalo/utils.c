@@ -4,6 +4,10 @@
 int *CriaVetor(int tamanho) {
     int *v = malloc(tamanho * sizeof(*v));
 
+    if (v == NULL) {
+        return NULL;
+    }
+
     return v;
 }
 

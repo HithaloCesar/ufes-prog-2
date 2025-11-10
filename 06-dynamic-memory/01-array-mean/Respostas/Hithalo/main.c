@@ -7,6 +7,11 @@ int main(void) {
     scanf("%d", &tamanho);
 
     int *vetor = CriaVetor(tamanho);
+    if (vetor == NULL) {
+        fprintf(stderr, "ERROR: The memory could not be written.\n");
+        return EXIT_FAILURE;
+    }
+
     LeVetor(vetor, tamanho);
 
     printf("%.2f\n", CalculaMedia(vetor, tamanho));
