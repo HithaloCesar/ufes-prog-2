@@ -19,7 +19,7 @@ void RolaMsg(FptrMsg FuncMsg, int tamanhoDisplay, int tempoFim) {
     int len = strlen(msgsConcatenadas);
 
     for (int i = 0; i < tempoFim; i++) {
-        for (int j = 0 + i + 1; j < tamanhoDisplay + i + 1; j++) {
+        for (int j = 0 + i; j < tamanhoDisplay + i; j++) {
             putchar(msgsConcatenadas[j % len]);
         }
         putchar('\n');
@@ -27,8 +27,7 @@ void RolaMsg(FptrMsg FuncMsg, int tamanhoDisplay, int tempoFim) {
         if (isatty(STDOUT_FILENO)) {
             usleep(100000); // 0.1 s
             // The solution binaries doesn't have this verification, so
-            // autograder.sh will fail with timeout.
-            // To fix this, set TIMEOUT to 120.
+            // the config file must have a high timeout limit.
             // Yes, it WILL take time lol
         }
 
