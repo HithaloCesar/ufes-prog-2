@@ -1,0 +1,67 @@
+Dia 0 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Jacare foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Cobra foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Animal Jacare morreu de fome.
+Animal Cobra morreu de fome.
+Dia 1 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Dia 2 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Dia 3 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Tartaruga foi adicionado ao recinto 0
+Dia 3 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Arara foi adicionado ao recinto 0
+Dia 3 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o recinto em que ocorreu a fuga:
+Valor invalido
+Dia 3 no zoológico Zoologico Tropical
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Animais liberados para a finalizacao do programa!!!

@@ -1,0 +1,12 @@
+Zoologico Rebelde
+2 2
+A
+2 Arara
+A
+3 Leao
+A
+1 Tartaruga
+A
+4 Urubu
+A
+5 Macaco

@@ -1,0 +1,16 @@
+Zoologico Tropical
+2 2
+A
+9 Jacare
+A
+9 Cobra
+D
+D
+D
+A
+4 Tartaruga
+A
+5 Arara
+F
+3
+E

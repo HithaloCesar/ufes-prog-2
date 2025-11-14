@@ -1,0 +1,16 @@
+Zoologico Selvagem
+2 3
+A
+4 Onca
+A
+3 Tigre
+A
+2 Lobo
+D
+F
+0
+A
+5 Raposa
+A
+6 Jaguar
+E

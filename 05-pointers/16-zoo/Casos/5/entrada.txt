@@ -1,0 +1,14 @@
+Zoologico Central
+2 2
+A
+3 Leo
+A
+5 Panda
+A
+1 Zebra
+D
+D
+D
+F
+0
+E

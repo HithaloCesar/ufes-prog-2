@@ -1,0 +1,20 @@
+Zoologico Central
+3 2
+A
+3 Leao
+A
+2 Tigre
+A
+5 Urso
+A
+6 Elefante
+D
+D
+A
+4 Zebra
+A
+5 Macaco
+F
+1
+D
+E

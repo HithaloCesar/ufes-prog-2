@@ -1,0 +1,82 @@
+Dia 0 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Leao foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Tigre foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Urso foi adicionado ao recinto 1
+Dia 0 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Elefante foi adicionado ao recinto 1
+Dia 0 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Dia 1 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Dia 2 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Zebra foi adicionado ao recinto 2
+Dia 2 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Macaco foi adicionado ao recinto 2
+Dia 2 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o recinto em que ocorreu a fuga:
+Animal Urso fugiu!
+Animal Elefante fugiu!
+Dia 2 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Dia 3 no zoológico Zoologico Central
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Animais liberados para a finalizacao do programa!!!
