@@ -1,0 +1,9 @@
+Arquivos
+    saida.txt=10
+Valgrind
+	desconto=0.5
+Validações
+	main=2.5
+    tAnimal=2.5
+    tRecinto=2.5
+    tZoologico=2.5

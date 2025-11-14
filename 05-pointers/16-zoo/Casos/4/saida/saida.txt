@@ -1,0 +1,63 @@
+Dia 0 no zoológico Zoologico Selvagem
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Onca foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Selvagem
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Tigre foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Selvagem
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Lobo foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Selvagem
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Dia 1 no zoológico Zoologico Selvagem
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o recinto em que ocorreu a fuga:
+Animal Onca fugiu!
+Animal Tigre fugiu!
+Animal Lobo fugiu!
+Dia 1 no zoológico Zoologico Selvagem
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Raposa foi adicionado ao recinto 0
+Dia 1 no zoológico Zoologico Selvagem
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Jaguar foi adicionado ao recinto 0
+Dia 1 no zoológico Zoologico Selvagem
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Animais liberados para a finalizacao do programa!!!

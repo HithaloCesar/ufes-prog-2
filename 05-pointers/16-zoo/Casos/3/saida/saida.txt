@@ -1,0 +1,41 @@
+Dia 0 no zoológico Zoologico Rebelde
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Arara foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Rebelde
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Leao foi adicionado ao recinto 0
+Dia 0 no zoológico Zoologico Rebelde
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Tartaruga foi adicionado ao recinto 1
+Dia 0 no zoológico Zoologico Rebelde
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+Animal Urubu foi adicionado ao recinto 1
+Dia 0 no zoológico Zoologico Rebelde
+Menu:
+ A - Adicionar animal
+ D - Passar o dia
+ F - Registrar fuga em recinto
+ E - Encerrar programa
+Informe o nível de fome e o nome do animal:
+FUGA GERAL NO ZOOLÓGICO!!!
+Todos os animais fugiram.
