@@ -3,8 +3,6 @@
 #include <stdbool.h>
 #include "tZoologico.h"
 
-#define MAX_STRING_SIZE 64
-
 typedef enum {
     OPERACAO_ADICIONAR_ANIMAL = 'A',
     OPERACAO_PASSAR_DIA = 'D',
@@ -15,13 +13,13 @@ typedef enum {
 static void ImprimeMenu(tZoologico *z);
 
 int main(void) {
-    char nome[MAX_STRING_SIZE];
-    scanf(" %[^\n]", nome);
+    char buffer[MAX_TAMANHO_NOME];
+    scanf("%[^\n]", buffer);
 
     int nRecintos, capacidade;
     scanf("%d %d", &nRecintos, &capacidade);
 
-    tZoologico z = CriaZoologico(nome, nRecintos, capacidade);
+    tZoologico z = CriaZoologico(buffer, nRecintos, capacidade);
 
     bool execucao = true;
     while (execucao) {
@@ -43,8 +41,8 @@ int main(void) {
                 }
 
                 int fome;
-                scanf("%d %[^\n]", &fome, nome);
-                AdicionaAnimalZoologico(&z, CriaAnimal(nome, fome));
+                scanf("%d %[^\n]", &fome, buffer);
+                AdicionaAnimalZoologico(&z, CriaAnimal(buffer, fome));
                 break;
             }
 
@@ -68,6 +66,7 @@ int main(void) {
             }
 
             default: {
+                fprintf(stderr, "ERRO: Input inválido.\n");
                 break;
             }
         }
@@ -77,7 +76,7 @@ int main(void) {
 }
 
 static void ImprimeMenu(tZoologico *z) {
-    printf("Dia %d no zoológico %s\n", z->dia, z->nome);
+    printf("Dia %d no zoológico %s\n", GetDia(z), GetNome(z));
     printf("Menu:\n");
     printf(" A - Adicionar animal\n");
     printf(" D - Passar o dia\n");

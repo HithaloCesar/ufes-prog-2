@@ -4,6 +4,7 @@
 
 tAnimal CriaAnimal(char *nome, int fome) {
     tAnimal animal;
+
     strcpy(animal.nome, nome);
     animal.fome = fome;
 
@@ -19,11 +20,11 @@ int AnimalEstaMorto(tAnimal *a) {
 }
 
 void ImprimeFugaAnimal(tAnimal *a) {
-    printf("Animal %s fugiu!\n", a->nome);
+    printf("Animal %s fugiu!\n", NomeAnimal(a));
 }
 
 void ImprimeMorteAnimal(tAnimal *a) {
-    printf("Animal %s morreu de fome.\n", a->nome);
+    printf("Animal %s morreu de fome.\n", NomeAnimal(a));
 }
 
 char *NomeAnimal(tAnimal *a) {

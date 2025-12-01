@@ -20,10 +20,7 @@ tZoologico CriaZoologico(char *nome, int nRecintos, int capacidade) {
 int AdicionaAnimalZoologico(tZoologico *z, tAnimal a) {
     for (int i = 0; i < z->nRecintos; i++) {
         if (AdicionaAnimalRecinto(&z->recintos[i], a)) {
-            printf(
-                "Animal %s foi adicionado ao recinto %d\n",
-                a.nome, i
-            );
+            printf("Animal %s foi adicionado ao recinto %d\n", NomeAnimal(&a), i);
             return 1;
         }
     }
@@ -71,4 +68,8 @@ int ZoologicoLotado(tZoologico *z) {
 
 char *GetNome(tZoologico *z) {
     return z->nome;
+}
+
+int GetDia(tZoologico *z) {
+    return z->dia;
 }
