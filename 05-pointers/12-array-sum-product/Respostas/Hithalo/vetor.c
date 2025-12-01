@@ -2,13 +2,10 @@
 #include <stdio.h>
 
 void LeVetor(Vetor *vetor) {
-    int tamanho;
-    scanf("%d", &tamanho);
+    scanf("%d", &vetor->tamanhoUtilizado);
 
-    vetor->tamanhoUtilizado = 0;
-    for (int i = 0; i < tamanho; i++) {
+    for (int i = 0; i < vetor->tamanhoUtilizado; i++) {
         scanf("%d", &vetor->elementos[i]);
-        vetor->tamanhoUtilizado++;
     }
 }
 
