@@ -95,4 +95,12 @@ int ZoologicoLotado(tZoologico *z);
  */
 char *GetNome(tZoologico *z);
 
+/**
+ * @brief Retorna o dia do zoológico.
+ *
+ * @param z Ponteiro para o zoológico.
+ * @return Dia atual do zoológico.
+ */
+int GetDia(tZoologico *z);
+
 #endif
