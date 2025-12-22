@@ -4,7 +4,7 @@
 4 - Multiplicacao de uma matriz por escalar
 5 - Transposta de uma matriz
 6 - Encerrar o programa
-Opcao escolhida:
+Opcao escolhida: 
 |12 16|
 |16 17|
 |14 22|
@@ -15,7 +15,7 @@ Opcao escolhida:
 4 - Multiplicacao de uma matriz por escalar
 5 - Transposta de uma matriz
 6 - Encerrar o programa
-Opcao escolhida:
+Opcao escolhida: 
 |-2 0|
 |-2 -3|
 |-8 -2|
@@ -26,7 +26,7 @@ Opcao escolhida:
 4 - Multiplicacao de uma matriz por escalar
 5 - Transposta de uma matriz
 6 - Encerrar o programa
-Opcao escolhida:
+Opcao escolhida: 
 Erro: o numero de colunas da primeira matriz eh diferente do numero de linhas da segunda matriz
 
 1 - Somar matrizes
@@ -35,7 +35,7 @@ Erro: o numero de colunas da primeira matriz eh diferente do numero de linhas da
 4 - Multiplicacao de uma matriz por escalar
 5 - Transposta de uma matriz
 6 - Encerrar o programa
-Opcao escolhida:
+Opcao escolhida: 
 |40 64|
 |56 56|
 |24 80|
@@ -46,7 +46,7 @@ Opcao escolhida:
 4 - Multiplicacao de uma matriz por escalar
 5 - Transposta de uma matriz
 6 - Encerrar o programa
-Opcao escolhida:
+Opcao escolhida: 
 |40 56 24|
 |64 56 80|
 
@@ -59,4 +59,4 @@ Opcao escolhida:
 4 - Multiplicacao de uma matriz por escalar
 5 - Transposta de uma matriz
 6 - Encerrar o programa
-Opcao escolhida:
+Opcao escolhida: 
