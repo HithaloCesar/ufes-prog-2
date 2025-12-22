@@ -4,82 +4,42 @@
 #include <string.h>
 
 struct Paciente {
-    char *nome;
-    char *cartaoSus;
+    char nome[MAX_NOME_PAC];
+    char cartaoSus[MAX_CARTAO_SUS];
     char genero;
     Data *dataNasc;
-    Lesao **lesoes;
-    size_t tamanhoLesoes;
-    int qtdLesoes;
+    Lesao *lesoes[MAX_LESOES];
+    int numLesoes;
 };
 
-Paciente *criaPaciente(char *nome,
-    char *cartaoSus,
-    char genero,
-    Data *dataNasc
-) {
-    Paciente *paciente = malloc(sizeof(*paciente));
-    if (paciente == NULL) {
-        return NULL;
-    }
+Paciente *criaPaciente(char *nome, char *cartao, char genero, Data *dataNasc) {
+    Paciente *p = calloc(1, sizeof(*p));
 
-    paciente->nome = malloc(MAX_NOME_PAC * sizeof(paciente->nome) + 1);
-    if (paciente->nome == NULL) {
-        free(paciente);
-        return NULL;
-    }
+    strcpy(p->nome, nome);
+    strcpy(p->cartaoSus, cartao);
+    p->genero = genero;
+    p->dataNasc = dataNasc;
 
-    paciente->cartaoSus = malloc(
-        MAX_CARTAO_SUS * sizeof(*paciente->cartaoSus) + 1
-    );
-    if (paciente->cartaoSus == NULL) {
-        free(paciente->nome);
-        free(paciente);
-        return NULL;
-    }
-
-    paciente->lesoes = malloc(MAX_LESOES * sizeof(*paciente->lesoes));
-    if (paciente->lesoes == NULL) {
-        free(paciente->nome);
-        free(paciente->cartaoSus);
-        free(paciente);
-        return NULL;
-    }
-
-    strcpy(paciente->nome, nome);
-    strcpy(paciente->cartaoSus, cartaoSus);
-    paciente->genero = genero;
-    paciente->dataNasc = dataNasc;
-    paciente->qtdLesoes = 0;
-    paciente->tamanhoLesoes = MAX_LESOES;
-
-    return paciente;
+    return p;
 }
 
-Paciente *lerPaciente() {
-    char nome[MAX_NOME_PAC + 1];
-    char cartaoSus[MAX_CARTAO_SUS + 1];
+Paciente *lerPaciente(void) {
+    char nome[MAX_NOME_PAC];
+    char cartaoSus[MAX_CARTAO_SUS];
     char genero;
 
     scanf(" %[^\n]", nome);
+    getchar();
     Data *dataNasc = lerData();
     scanf(" %[^\n]", cartaoSus);
     scanf(" %c", &genero);
+    getchar();
 
     return criaPaciente(nome, cartaoSus, genero, dataNasc);
 }
 
 void adicionaLesaoPaciente(Paciente *p, Lesao *l) {
-    if (p->qtdLesoes == p->tamanhoLesoes) {
-        Lesao **novoLesoes;
-        p->tamanhoLesoes += MAX_LESOES;
-        novoLesoes = realloc(p->lesoes, p->tamanhoLesoes * sizeof(*p->lesoes));
-        if (novoLesoes == NULL) {
-            return;
-        }
-        p->lesoes = novoLesoes;
-    }
-    p->lesoes[p->qtdLesoes++] = l;
+    p->lesoes[p->numLesoes++] = l;
 }
 
 int calculaIdadePaciente(Paciente *p, Data *dataBase) {
@@ -91,27 +51,27 @@ char *getCartaoSusPaciente(Paciente *p) {
 }
 
 int getNumLesoesPaciente(Paciente *p) {
-    return p->qtdLesoes;
+    return p->numLesoes;
 }
 
 int qtdLesoesCirurgicasPaciente(Paciente *p) {
-    int qtdCirurgias = 0;
-    for (int i = 0; i < p->qtdLesoes; i++) {
+    int qtdLesoesCirurgicas = 0;
+    for (int i = 0; i < p->numLesoes; i++) {
         if (verificaCirurgicaLesao(p->lesoes[i])) {
-            qtdCirurgias++;
+            qtdLesoesCirurgicas++;
         }
     }
 
-    return qtdCirurgias;
+    return qtdLesoesCirurgicas;
 }
 
 void imprimePaciente(Paciente *p) {
-    if (getNumLesoesPaciente(p) <= 0) {
+    if (p->numLesoes == 0) {
         return;
     }
 
     printf("- %s - ", p->nome);
-    for (int i = 0 ; i < p->qtdLesoes; i++) {
+    for (int i = 0; i < p->numLesoes; i++) {
         imprimeIdLesao(p->lesoes[i]);
         putchar(' ');
     }
@@ -119,12 +79,9 @@ void imprimePaciente(Paciente *p) {
 }
 
 void liberaPaciente(Paciente *p) {
-    free(p->nome);
-    free(p->cartaoSus);
-    liberaData(p->dataNasc);
-    for (int i = 0; i < p->qtdLesoes; i++) {
+    for (int i = 0; i < p->numLesoes; i++) {
         liberaLesao(p->lesoes[i]);
     }
-    free(p->lesoes);
+    liberaData(p->dataNasc);
     free(p);
 }

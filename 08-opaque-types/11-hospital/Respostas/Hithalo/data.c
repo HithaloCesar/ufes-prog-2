@@ -9,10 +9,7 @@ struct Data {
 };
 
 Data *criaData(int dia, int mes, int ano) {
-    Data *data = malloc(sizeof(*data));
-    if (data == NULL) {
-        return NULL;
-    }
+    Data *data = calloc(1, sizeof(*data));
 
     data->dia = dia;
     data->mes = mes;
@@ -21,16 +18,20 @@ Data *criaData(int dia, int mes, int ano) {
     return data;
 }
 
-Data *lerData() {
+Data *lerData(void) {
     int dia, mes, ano;
-    scanf("%d/%d/%d\n", &dia, &mes, &ano);
+    scanf("%d/%d/%d", &dia, &mes, &ano);
+    getchar();
 
     return criaData(dia, mes, ano);
 }
 
 int diferencaAnoData(Data *inicial, Data *atual) {
     int ajuste = 0;
-    if (atual->mes < inicial->mes || (atual->mes == inicial->mes && atual->dia < inicial->dia)) {
+
+    if (atual->mes < inicial->mes
+        || (atual->mes == inicial->mes && atual->dia < inicial->dia)) {
+
         ajuste = 1;
     }
 

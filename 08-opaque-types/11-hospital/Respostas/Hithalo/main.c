@@ -3,166 +3,106 @@
 #include <stdbool.h>
 #include <string.h>
 #include "paciente.h"
+#include "lesao.h"
 
-#define QTD_INICIAL_PACIENTES 10
-#define DIA_HOJE 12
-#define MES_HOJE 9
-#define ANO_HOJE 2023
+#define MAX_PACIENTES 100
+#define DIA_BASE 19
+#define MES_BASE 9
+#define ANO_BASE 2023
 
 typedef enum {
     OPERACAO_ADICIONAR_PACIENTE = 'P',
-    OPERACAO_ADICIONAR_LESAO = 'L',
+    OPERACAO_ADICIONA_LESAO = 'L',
     OPERACAO_FINALIZAR_PROGRAMA = 'F'
 } Operacao;
 
-static int OperacaoAdicionarPaciente(
+static void imprimeRelatorio(Paciente **pacientes, int qtdPacientes);
+static Paciente *encontraPaciente(
     Paciente **pacientes,
-    size_t *tamanhoPacientes,
-    size_t *qtdPacientes
+    int qtdPacientes,
+    char *cartaoSus
 );
-
-static int OperacaoAdicionaLesao(Paciente **pacientes, size_t qtdPacientes);
-
-static void OperacaoFinalizarPrograma(
-    Paciente **pacientes,
-    size_t qtdPacientes
-);
-
-static void freePacientes(Paciente **pacientes, size_t qtdPacientes);
 
 int main(void) {
-    Paciente **pacientes = malloc(QTD_INICIAL_PACIENTES * sizeof(*pacientes));
-    size_t tamanhoPacientes = QTD_INICIAL_PACIENTES;
-    size_t qtdPacientes = 0;
+    Paciente **pacientes = calloc(MAX_PACIENTES, sizeof(*pacientes));
+    int qtdPacientes = 0;
 
-    char operacao;
-    bool executar = true;
-    while (executar) {
-        scanf(" %c\n", &operacao);
+    bool continuarExecucao = true;
+    while (continuarExecucao) {
+        char operacao;
+        scanf(" %c", &operacao);
+        getchar();
 
         switch (operacao) {
             case OPERACAO_ADICIONAR_PACIENTE: {
-                int sucesso = !OperacaoAdicionarPaciente(
-                    pacientes,
-                    &tamanhoPacientes,
-                    &qtdPacientes
+                pacientes[qtdPacientes++] = lerPaciente();
+                break;
+            }
+            case OPERACAO_ADICIONA_LESAO: {
+                Lesao *l = lerLesao();
+                Paciente *p = encontraPaciente(
+                    pacientes, qtdPacientes, getCartaoSusLesao(l)
                 );
-                if (!sucesso) {
-                    freePacientes(pacientes, qtdPacientes);
-                    return EXIT_FAILURE;
+                if (!p) {
+                    liberaLesao(l);
+                    break;
                 }
+                adicionaLesaoPaciente(p, l);
                 break;
             }
-
-            case OPERACAO_ADICIONAR_LESAO: {
-                if (OperacaoAdicionaLesao(pacientes, qtdPacientes)) {
-                    return EXIT_FAILURE;
-                }
-                break;
-            }
-
             case OPERACAO_FINALIZAR_PROGRAMA: {
-                OperacaoFinalizarPrograma(pacientes, qtdPacientes);
-                executar = false;
-                break;
-            }
-
-            default: {
+                continuarExecucao = false;
                 break;
             }
         }
     }
+
+    imprimeRelatorio(pacientes, qtdPacientes);
+
+    for (int i = 0; i < qtdPacientes; i++) {
+        liberaPaciente(pacientes[i]);
+    }
+    free(pacientes);
 
     return EXIT_SUCCESS;
 }
 
-static int OperacaoAdicionarPaciente(
-    Paciente **pacientes,
-    size_t *tamanhoPacientes,
-    size_t *qtdPacientes
-) {
-    if (*qtdPacientes == *tamanhoPacientes) {
-        Paciente **novoPacientes;
-        *tamanhoPacientes += QTD_INICIAL_PACIENTES;
-        novoPacientes = realloc(
-            pacientes, *tamanhoPacientes * sizeof(*pacientes)
-        );
-        if (novoPacientes == NULL) {
-            return 1;
-        }
-        pacientes = novoPacientes;
+static void imprimeRelatorio(Paciente **pacientes, int qtdPacientes) {
+    Data *diaBase = criaData(DIA_BASE, MES_BASE, ANO_BASE);
+    int somaIdades = 0;
+    int qtdLesoes = 0;
+    int qtdCirurgias = 0;
+    for (int i = 0; i < qtdPacientes; i++) {
+        somaIdades += calculaIdadePaciente(pacientes[i], diaBase);
+        qtdLesoes += getNumLesoesPaciente(pacientes[i]);
+        qtdCirurgias += qtdLesoesCirurgicasPaciente(pacientes[i]);
     }
+    liberaData(diaBase);
 
-    pacientes[*qtdPacientes] = lerPaciente();
-    if (pacientes[*qtdPacientes] == NULL) {
-        return 1;
-    }
-    (*qtdPacientes)++;
-
-    return 0;
-}
-
-static int OperacaoAdicionaLesao(Paciente **pacientes, size_t qtdPacientes) {
-    Lesao *lesao = lerLesao();
-    bool PacienteEncontrado = false;
-    for (size_t i = 0; i < qtdPacientes; i++) {
-        char *cartaoSusPaciente = getCartaoSusPaciente(pacientes[i]);
-        if (!strcmp(getCartaoSusLesao(lesao), cartaoSusPaciente)) {
-            PacienteEncontrado = true;
-            int qtdInicialLesoes = getNumLesoesPaciente(pacientes[i]);
-            adicionaLesaoPaciente(pacientes[i], lesao);
-            int qtdFinalLesoes = getNumLesoesPaciente(pacientes[i]);
-            if (qtdFinalLesoes == qtdInicialLesoes) {
-                liberaLesao(lesao);
-                freePacientes(pacientes, qtdPacientes);
-                return 1;
-            }
-            break;
-        }
-    }
-
-    if (!PacienteEncontrado) {
-        liberaLesao(lesao);
-    }
-
-    return 0;
-}
-
-static void OperacaoFinalizarPrograma(
-    Paciente **pacientes,
-    size_t qtdPacientes
-) {
-    int soma_idades = 0;
-    int totalLesoes = 0;
-    int totalCirurgias = 0;
-    Data *hoje = criaData(DIA_HOJE, MES_HOJE, ANO_HOJE);
-    for (size_t i = 0; i < qtdPacientes; i++) {
-        soma_idades += calculaIdadePaciente(pacientes[i], hoje);
-        totalLesoes += getNumLesoesPaciente(pacientes[i]);
-        totalCirurgias += qtdLesoesCirurgicasPaciente(pacientes[i]);
-    }
-    free(hoje);
-
-    printf("TOTAL PACIENTES: %zu\n", qtdPacientes);
-    printf("MEDIA IDADE (ANOS): ");
+    printf("TOTAL PACIENTES: %d\n", qtdPacientes);
     if (qtdPacientes > 0) {
-        printf("%d\n", soma_idades / (int)qtdPacientes);
+        printf("MEDIA IDADE (ANOS): %d\n", somaIdades / qtdPacientes);
     } else {
-        printf("-\n");
+        printf("MEDIA IDADE (ANOS): -\n");
     }
-    printf("TOTAL LESOES: %d\n", totalLesoes);
-    printf("TOTAL CIRURGIAS: %d\n", totalCirurgias);
+    printf("TOTAL LESOES: %d\n", qtdLesoes);
+    printf("TOTAL CIRURGIAS: %d\n", qtdCirurgias);
     printf("LISTA DE PACIENTES:\n");
-    for (size_t i = 0; i < qtdPacientes; i++) {
+    for (int i = 0; i < qtdPacientes; i++) {
         imprimePaciente(pacientes[i]);
     }
-
-    freePacientes(pacientes, qtdPacientes);
 }
 
-static void freePacientes(Paciente **pacientes, size_t qtdPacientes) {
-    for (size_t i = 0; i < qtdPacientes; i++) {
-        liberaPaciente(pacientes[i]);
+static Paciente *encontraPaciente(
+    Paciente **pacientes,
+    int qtdPacientes,
+    char *cartaoSus
+) {
+    for (int i = 0; i < qtdPacientes; i++) {
+        if (!strcmp(getCartaoSusPaciente(pacientes[i]), cartaoSus)) {
+            return pacientes[i];
+        }
     }
-    free(pacientes);
+
+    return NULL;
 }
