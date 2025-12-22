@@ -1,0 +1,17 @@
+Nome: WS Eletronica
+Tecnicos empregados:
+Ficha do Tecnico #####
+Nome: Rogeiro Deniz
+Id: ELE0024
+Tickets atribuidos:
+Ficha do Tecnico #####
+Nome: Fernanda Silva
+Id: ELE0025
+Tickets atribuidos:
+======================
+Nome: Resistor queimado
+Codigo: 1225
+Situacao: CONCLUIDO
+Descricao: Substituir resistor queimado da placa ilhada
+======================
+Tecnico com maior numero de pendencias: Rogeiro Deniz

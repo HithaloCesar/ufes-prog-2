@@ -1,0 +1,16 @@
+WS Eletronica
+CADASTRA
+Rogeiro Deniz
+ELE0024
+CADASTRA
+Fernanda Silva
+ELE0025
+TICKET
+Resistor queimado
+1225
+Substituir resistor queimado da placa ilhada
+ELE0025
+CONCLUI
+1225
+IMPRIME
+FIM

@@ -1,0 +1,19 @@
+TECNICO SOBRECARREGADO
+Nome: RONALDO ELETRONICA LDTA.
+Tecnicos empregados:
+Ficha do Tecnico #####
+Nome: Sergio Guimaraes
+Id: TEC001
+Tickets atribuidos:
+======================
+Nome: Aparelho nao liga
+Codigo: 1
+Situacao: CONCLUIDO
+Descricao: Aparelho celular não está ligando
+======================
+Nome: Troca de bateria
+Codigo: 3
+Situacao: CONCLUIDO
+Descricao: Bateria precisa ser trocada por uma de maior capacidade
+======================
+Tecnico com maior numero de pendencias: Sergio Guimaraes
