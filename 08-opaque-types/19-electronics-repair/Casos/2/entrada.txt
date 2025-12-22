@@ -1,0 +1,27 @@
+RONALDO ELETRONICA LDTA.
+CADASTRA
+Sergio Guimaraes
+TEC001
+TICKET
+Aparelho nao liga
+001
+Aparelho celular não está ligando
+TEC001
+TICKET
+Tela quebrada
+002
+Tela do notebook precisa de reparo
+TEC001
+AUMENTA
+TEC001
+TICKET
+Troca de bateria
+003
+Bateria precisa ser trocada por uma de maior capacidade
+TEC001
+CONCLUI
+003
+CONCLUI
+001
+IMPRIME
+FIM

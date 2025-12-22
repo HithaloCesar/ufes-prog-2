@@ -1,0 +1,49 @@
+EletroHits
+CADASTRA
+Guido Agnezi
+INF024
+CADASTRA
+Leonardo Roxo
+INF025
+CADASTRA
+Bernardo
+INF026
+TICKET
+Resistor super queimado
+001
+Resistor está super queimado, não há nada o que fazer
+INF026
+CONCLUI
+002
+TICKET
+Resistor ULTRA queimado
+002
+Resistor está ultra queimado, dessa vez, há o que fazer, ironicamente
+INF024
+CONCLUI
+001
+TICKET
+Resistor de baixa resistencia
+003
+Aumentar a resistencia do resistor 3
+INF024
+AUMENTA
+INF024
+TICKET
+Resistor de baixa resistencia
+003
+Aumentar a resistencia do resistor 3
+INF024
+IMPRIME
+TICKET
+Resistor legal pra caramba
+004
+Esse resistor é MUITO LEGAL VEY
+INF023
+TICKET
+Resistor legal pra caramba
+004
+Esse resistor é MUITO LEGAL VEY
+INF025
+IMPRIME
+FIM

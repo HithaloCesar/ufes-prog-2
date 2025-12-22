@@ -1,0 +1,69 @@
+TECNICO SOBRECARREGADO
+Nome: EletroHits
+Tecnicos empregados:
+Ficha do Tecnico #####
+Nome: Guido Agnezi
+Id: INF024
+Tickets atribuidos:
+======================
+Nome: Resistor ULTRA queimado
+Codigo: 2
+Situacao: PENDENTE
+Descricao: Resistor está ultra queimado, dessa vez, há o que fazer, ironicamente
+======================
+Nome: Resistor de baixa resistencia
+Codigo: 3
+Situacao: PENDENTE
+Descricao: Aumentar a resistencia do resistor 3
+Ficha do Tecnico #####
+Nome: Leonardo Roxo
+Id: INF025
+Tickets atribuidos:
+Ficha do Tecnico #####
+Nome: Bernardo
+Id: INF026
+Tickets atribuidos:
+======================
+Nome: Resistor super queimado
+Codigo: 1
+Situacao: CONCLUIDO
+Descricao: Resistor está super queimado, não há nada o que fazer
+======================
+Tecnico com maior numero de pendencias: Guido Agnezi
+TECNICO NAO ENCONTRADO
+Nome: EletroHits
+Tecnicos empregados:
+Ficha do Tecnico #####
+Nome: Guido Agnezi
+Id: INF024
+Tickets atribuidos:
+======================
+Nome: Resistor ULTRA queimado
+Codigo: 2
+Situacao: PENDENTE
+Descricao: Resistor está ultra queimado, dessa vez, há o que fazer, ironicamente
+======================
+Nome: Resistor de baixa resistencia
+Codigo: 3
+Situacao: PENDENTE
+Descricao: Aumentar a resistencia do resistor 3
+Ficha do Tecnico #####
+Nome: Leonardo Roxo
+Id: INF025
+Tickets atribuidos:
+======================
+Nome: Resistor legal pra caramba
+Codigo: 4
+Situacao: PENDENTE
+Descricao: Esse resistor é MUITO LEGAL VEY
+Ficha do Tecnico #####
+Nome: Bernardo
+Id: INF026
+Tickets atribuidos:
+======================
+Nome: Resistor super queimado
+Codigo: 1
+Situacao: CONCLUIDO
+Descricao: Resistor está super queimado, não há nada o que fazer
+======================
+Tecnico com maior numero de pendencias: Guido Agnezi
