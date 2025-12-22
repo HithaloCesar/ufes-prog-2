@@ -1001,7 +1001,7 @@ executa_aluno() {
                     n_correct_answers=0
                     n_correct_valgrinds=0
                     sum_of_the_grades_of_all_cases=0.0
-                    for DIR_CASE in "$DIR_CASES"/*; do
+                    while IFS= read -r DIR_CASE; do
                         (( n_cases_folders++ ))
 
                         unset pesos_arquivos_deste_caso
@@ -1043,7 +1043,7 @@ executa_aluno() {
                         input_file="${DIR_CASE}/entrada.txt"
 
                         binary=$STUDENT_RESULT_FOLDER/$src_file_dir/prog
-                        valgrind_args="--leak-check=full --log-file=$DIR_CASE/result_valgrind.txt"
+                        valgrind_args="--leak-check=full --track-origins=yes --log-file=$DIR_CASE/result_valgrind.txt"
 
                         if [ "$IGNORE_VALGRIND" = "false" ]; then
                             if [ "$REDIRECT_STDOUT" = true ]; then
@@ -1284,7 +1284,7 @@ executa_aluno() {
 
                         sum_of_the_grades_of_all_cases=$(echo "scale=2; $sum_of_the_grades_of_all_cases + $nota_deste_caso" | bc)
 
-                    done
+                    done < <(find "$DIR_CASES" -mindepth 1 -maxdepth 1 -type d | sort -V)
 
                     nota_para_pasta=$(echo "scale=2; $sum_of_the_grades_of_all_cases / ($peso_total_arquivos * $peso_total_casos)" | bc)
                     nota_max_pasta=$(echo "scale=2; $peso_total_arquivos * $peso_total_casos" | bc)
