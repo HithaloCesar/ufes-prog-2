@@ -1043,7 +1043,7 @@ executa_aluno() {
                         input_file="${DIR_CASE}/entrada.txt"
 
                         binary=$STUDENT_RESULT_FOLDER/$src_file_dir/prog
-                        valgrind_args="--leak-check=full --log-file=$DIR_CASE/result_valgrind.txt"
+                        valgrind_args="--leak-check=full --track-origins=yes --log-file=$DIR_CASE/result_valgrind.txt"
 
                         if [ "$IGNORE_VALGRIND" = "false" ]; then
                             if [ "$REDIRECT_STDOUT" = true ]; then
