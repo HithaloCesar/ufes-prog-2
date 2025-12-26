@@ -12,58 +12,26 @@ typedef enum {
     OPERACAO_IMPRIMIR_MUSICAS_GENERO
 } Operacao;
 
-static void operacaoAdicionarMusica(Playlist *p) {
-    adicionaMusica(p);
-}
-
-static void operacaoRemoverMusica(Playlist *p) {
-    char music[MAX_TAM_STRING];
-    scanf(" %[^\r\n]\n", music);
-
-    bool sucesso = removeMusica(p, music, comparaNomeMus, imprimeMusica_Album);
-
-    if (!sucesso) {
-        printf("A MUSICA NAO ESTA NA PLAYLIST\n");
-    }
-}
-
-static void operacaoImprimirPlaylist(Playlist *p) {
-    impressFunction(p, NULL, NULL, imprimeMusica);
-}
-
-static void operacaoImprimirMusicasArtista(Playlist *p) {
-    char artist[MAX_TAM_STRING];
-    scanf(" %[^\r\n]\n", artist);
-
-    impressFunction(p, artist, comparaArtistaMus, imprimeMusica_Artista);
-}
-
-static void operacaoImprimirMusicasAlbum(Playlist *p) {
-    char album[MAX_TAM_STRING];
-    scanf(" %[^\r\n]\n", album);
-
-    impressFunction(p, album, comparaAlbumMus, imprimeMusica_Album);
-}
-
-static void operacaoImprimirMusicasGenero(Playlist *p) {
-    char genre[MAX_TAM_STRING];
-    scanf(" %[^\r\n]\n", genre);
-
-    impressFunction(p, genre, comparaGeneroMus, imprimeMusica_Genero);
-}
+static void operacaoAdicionarMusica(Playlist *p);
+static void operacaoRemoverMusica(Playlist *p);
+static void operacaoImprimirPlaylist(Playlist *p);
+static void operacaoImprimirMusicasArtista(Playlist *p);
+static void operacaoImprimirMusicasAlbum(Playlist *p);
+static void operacaoImprimirMusicasGenero(Playlist *p);
 
 int main(void) {
     char playlist_name[MAX_TAM_STRING];
-    scanf(" %[^\r\n]\n", playlist_name);
+    scanf(" %[^\n]", playlist_name);
 
     Playlist *playlist = criaPlaylist(playlist_name);
 
     int qtdOperacoes;
-    scanf("%d\n", &qtdOperacoes);
+    scanf("%d", &qtdOperacoes);
 
     for (int i = 0; i < qtdOperacoes; i++) {
         int operacao;
-        scanf("%d\n", &operacao);
+        scanf("%d", &operacao);
+        getchar();
 
         switch (operacao) {
             case OPERACAO_ADICONAR_MUSICA: {
@@ -90,13 +58,54 @@ int main(void) {
                 operacaoImprimirMusicasGenero(playlist);
                 break;
             }
-            default: {
-                break;
-            }
         }
     }
 
     apagaPlaylist(playlist);
 
     return EXIT_SUCCESS;
+}
+
+static void operacaoAdicionarMusica(Playlist *p) {
+    adicionaMusica(p);
+}
+
+static void operacaoRemoverMusica(Playlist *p) {
+    char music[MAX_TAM_STRING];
+    scanf(" %[^\n]", music);
+    getchar();
+
+    bool sucesso = removeMusica(p, music, comparaNomeMus, imprimeMusica_Album);
+
+    if (!sucesso) {
+        printf("A MUSICA NAO ESTA NA PLAYLIST\n");
+    }
+}
+
+static void operacaoImprimirPlaylist(Playlist *p) {
+    impressFunction(p, NULL, NULL, imprimeMusica);
+}
+
+static void operacaoImprimirMusicasArtista(Playlist *p) {
+    char artist[MAX_TAM_STRING];
+    scanf(" %[^\n]", artist);
+    getchar();
+
+    impressFunction(p, artist, comparaArtistaMus, imprimeMusica_Artista);
+}
+
+static void operacaoImprimirMusicasAlbum(Playlist *p) {
+    char album[MAX_TAM_STRING];
+    scanf(" %[^\n]", album);
+    getchar();
+
+    impressFunction(p, album, comparaAlbumMus, imprimeMusica_Album);
+}
+
+static void operacaoImprimirMusicasGenero(Playlist *p) {
+    char genre[MAX_TAM_STRING];
+    scanf(" %[^\n]", genre);
+    getchar();
+
+    impressFunction(p, genre, comparaGeneroMus, imprimeMusica_Genero);
 }

@@ -1,49 +1,31 @@
 #include "musica.h"
 
 struct musica {
-    char *name;
-    char *artist;
-    char *album;
-    char *genre;
+    char name[MAX_TAM_STRING + 1];
+    char artist[MAX_TAM_STRING + 1];
+    char album[MAX_TAM_STRING + 1];
+    char genre[MAX_TAM_STRING + 1];
 };
 
 Musica *criaMusica(void) {
-    Musica *music = malloc(sizeof(*music));
-    if (music == NULL) {
-        return NULL;
-    }
-
-    music->name = NULL;
-    music->artist = NULL;
-    music->album = NULL;
-    music->genre = NULL;
+    Musica *music = calloc(1, sizeof(*music));
 
     return music;
 }
 
 void leMusica(Musica *music) {
-    music->name = malloc(MAX_TAM_STRING * sizeof(*music->name) + 1);
-    music->artist = malloc(MAX_TAM_STRING * sizeof(*music->artist) + 1);
-    music->album = malloc(MAX_TAM_STRING * sizeof(*music->album) + 1);
-    music->genre = malloc(MAX_TAM_STRING * sizeof(*music->genre) + 1);
-
-    if (
-        music->name == NULL || music->artist == NULL
-        || music->album == NULL || music->genre == NULL
-    ) {
-        exit(1);
-    }
-
-    scanf(" %[^\r\n]", music->name);
-    scanf(" %[^\r\n]", music->artist);
-    scanf(" %[^\r\n]", music->album);
-    scanf(" %[^\r\n]", music->genre);
+    scanf(" %[^\n]", music->name);
+    scanf(" %[^\n]", music->artist);
+    scanf(" %[^\n]", music->album);
+    scanf(" %[^\n]", music->genre);
+    getchar();
 }
 
 int comparaMusicas(Musica *music_1, Musica *music_2) {
     if (!comparaNomeMus(music_1, music_2->name)) {
         return 0;
     }
+
     if (!comparaArtistaMus(music_1, music_2->artist)) {
         return 0;
     }
@@ -87,9 +69,5 @@ void imprimeMusica_Genero(Musica *music) {
 }
 
 void apagaMusica(Musica *music) {
-    free(music->name);
-    free(music->artist);
-    free(music->album);
-    free(music->genre);
     free(music);
 }
