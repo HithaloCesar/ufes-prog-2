@@ -3,23 +3,41 @@
 
 #define MAXTAM_STRINGS 100
 
+/**
+ * @brief Estrutura da Música, contendo:
+ * 
+ * - Título
+ * 
+ * - Artista
+ * 
+ * - Número de participantes
+ * 
+ * - Participantes (vetor)
+ * 
+ * - Álbum
+ * 
+ * - Gênero
+ */
 typedef struct Musica Musica;
 
-// Aloca dinamicamente uma nova estrutura Musica e realiza a leitura dos dados
-// de entrada associados à música. Pode envolver múltiplos participantes na música.
-// Retorna: Ponteiro para a Musica recém-criada, com os dados carregados.
-Musica* musica_construct();
+/**
+ * @brief Lê as informações de uma música, conforme as especificações, e a constrói. 
+ * Não é necessário alocar as strings dinamicamente, apenas a música em si.
+ * @return Um objeto do tipo música lido da entrada padrão e devidamente alocado.
+ */
+Musica* musica_read_and_construct();
 
-// Imprime os dados da música. Recebe um ponteiro genérico para a música
-// e exibe suas informações relevantes, como título, artistas, etc.
-// Parâmetros:
-//  m - Ponteiro para a Musica a ser impressa.
+/**
+ * @brief Imprime todas as informações de uma música na tela, conforme as especificações.
+ * @param m música a ser impressa (passada como void*, é preciso fazer typecast dentro da função).
+ */
 void musica_print(void* m);
 
-// Libera a memória alocada para a música, desalocando a estrutura Musica
-// e seus dados associados de forma adequada.
-// Parâmetros:
-//  m - Ponteiro para a Musica a ser destruída.
+/**
+ * @brief Destrói uma música, liberando toda a memória alocada para ela.
+ * @param m música a ser liberada (passada como void*, é preciso fazer typecast dentro da função).
+ */
 void musica_destroy(void* m);
+
 
 #endif

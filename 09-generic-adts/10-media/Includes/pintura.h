@@ -3,23 +3,39 @@
 
 #define MAXTAM_STRINGS 100
 
+/**
+ * @brief Estrutura de uma pintura, contendo:
+ * 
+ * - Título
+ * 
+ * - Artista
+ * 
+ * - Movimento
+ * 
+ * - Material
+ * 
+ * - Ano
+ */
 typedef struct Pintura Pintura;
 
-// Aloca dinamicamente uma nova estrutura Pintura e realiza a leitura dos dados
-// de entrada associados à pintura. Retorna o ponteiro para o objeto Pintura.
-// Retorna: Ponteiro para a Pintura recém-criada, com dados carregados.
-Pintura* pintura_construct();
+/**
+ * @brief Lê as informações de uma pintura, conforme as especificações, e a constrói. 
+ * Não é necessário alocar as strings dinamicamente, apenas a pintura em si.
+ * @return Um objeto do tipo pintura lido da entrada padrão e devidamente alocado.
+ */
+Pintura* pintura_read_and_construct();
 
-// Imprime os dados de uma pintura. Recebe um ponteiro genérico para a pintura,
-// e utiliza a função de impressão para exibir as informações relevantes.
-// Parâmetros:
-//  p - Ponteiro para a Pintura a ser impressa.
+/**
+ * @brief Imprime todas as informações de uma pintura na tela, conforme as especificações.
+ * @param p pintura a ser impressa (passada como void*, é preciso fazer typecast dentro da função).
+ */
 void pintura_print(void* p);
 
-// Libera a memória alocada para a pintura, chamando a função de desalocação
-// apropriada para os dados da estrutura Pintura.
-// Parâmetros:
-//  p - Ponteiro para a Pintura a ser destruída.
+/**
+ * @brief Destrói uma pintura, liberando toda a memória alocada para ela.
+ * @param p pintura a ser liberada (passada como void*, é preciso fazer typecast dentro da função).
+ */
 void pintura_destroy(void* p);
+
 
 #endif

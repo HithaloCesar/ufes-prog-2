@@ -3,23 +3,38 @@
 
 #define MAXTAM_STRINGS 100
 
+/** @brief Estrutura do Livro, contendo:
+ * 
+ * - Título
+ * 
+ * - Autor
+ * 
+ * - Gênero
+ * 
+ * - Editora
+ * 
+ * - Ano
+ */
 typedef struct Livro Livro;
 
-// Aloca dinamicamente uma nova estrutura Livro e realiza a leitura dos dados
-// de entrada associados ao livro. Retorna o ponteiro para o objeto Livro.
-// Retorna: Ponteiro para o Livro recém-criado, com os dados carregados.
-Livro* livro_construct();
+/**
+ * @brief Lê as informações de um livro, conforme as especificações, e o constrói. 
+ * Não é necessário alocar as strings dinamicamente, apenas o livro em si.
+ * @return Um objeto do tipo livro lido da entrada padrão e devidamente alocado.
+ */
+Livro* livro_read_and_construct();
 
-// Imprime os dados do livro. Recebe um ponteiro genérico para o livro
-// e exibe suas informações relevantes, como título, autor, etc.
-// Parâmetros:
-//  l - Ponteiro para o Livro a ser impresso.
+/**
+ * @brief Imprime todas as informações de um livro na tela, conforme as especificações.
+ * @param l Livro a ser impresso (passado como void*, é preciso fazer typecast dentro da função).
+ */
 void livro_print(void* l);
 
-// Libera a memória alocada para o livro, desalocando a estrutura Livro
-// e seus dados associados de forma adequada.
-// Parâmetros:
-//  l - Ponteiro para o Livro a ser destruído.
+/**
+ * @brief Destrói um livro, liberando toda a memória alocada para ele.
+ * @param l Livro a ser liberado (passado como void*, é preciso fazer typecast dentro da função).
+ */
 void livro_destroy(void* l);
+
 
 #endif
