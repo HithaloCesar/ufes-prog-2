@@ -3,31 +3,44 @@
 
 #include "midia.h"
 
+/**
+ * @brief Estrutura do tipo Roteiro, contendo:
+ * 
+ * - Mídias: todas as mídias gerenciadas pelo sistema, assim como
+ * as demais informações necessárias para a manipulação desse vetor dinâmico.
+ */
 typedef struct Roteiro Roteiro;
 
-// Aloca dinamicamente um novo objeto Roteiro e retorna o ponteiro para ele.
-// Retorna: Ponteiro para o Roteiro recém-criado.
+/**
+ * @brief Cria um Roteiro, alocando dinamicamente seu vetor de mídias e a si mesmo.
+ * @return Um Roteiro criado e devidamente alocado.
+ */
 Roteiro *roteiro_construct();
 
-// Aumenta o espaço de armazenamento de mídias no Roteiro, insere a nova mídia
-// utilizando o construtor de mídia (midia_construct), e incrementa o contador de mídias.
-// Parâmetros:
-//  r       - Ponteiro para o Roteiro onde a mídia será inserida.
-//  dado    - Ponteiro genérico contendo os dados da nova mídia a ser inserida.
-//  print_fn - Função de impressão personalizada para a mídia.
-//  free_fn  - Função de liberação personalizada para os recursos da mídia.
-void roteiro_inserir_midia(Roteiro* r, void *dado, PrintFunction print_fn, FreeFunction free_fn);
+/**
+ * @brief Insere uma nova mídia ao vetor guardado no roteiro, fazendo as manipulações de memória necessárias.
+ * Essa função deve criar uma nova mídia internamente.
+ * @param r Roteiro ao qual a mídia será adicionada.
+ * @param dado A mídia em si (Livro, Música ou Pintura).
+ * @param print_fn função de impressão da mídia (consulte "midia.h" para mais info).
+ * @param free_fn função de liberação da mídia (consulte "midia.h" para mais info).
+ */
+void roteiro_inserir_midia(Roteiro* r, void *dado,  PrintFunction print_fn, FreeFunction free_fn);
 
-// Imprime todas as mídias presentes no Roteiro. Se não houver mídias,
-// imprime a mensagem "SEM MIDIAS PARA IMPRIMIR".
-// Parâmetros:
-//  r - Ponteiro para o Roteiro a ser impresso.
+/**
+ * @brief Imprime todas as midias presentes em determinado roteiro na tela, usando midia_print.
+ * 
+ * Se houverem mídias no roteiro, inicia imprimindo "IMPRIMINDO MIDIAS\n".
+ * 
+ * Caso contrário, apenas imprime "SEM MIDIAS PARA IMPRIMIR\n".
+ * @param r Roteiro do qual as mídias serão impressas.
+ */
 void roteiro_imprimir_midias(Roteiro *r);
 
-// Libera a memória alocada para o Roteiro e suas mídias, desalocando
-// adequadamente cada um dos elementos armazenados.
-// Parâmetros:
-//  r - Ponteiro para o Roteiro a ser destruído.
+/**
+ * @brief Destrói um Roteiro, liberando todas as mídias, o vetor de mídias e o objeto do tipo Roteiro em si.
+ * @param r Roteiro que será liberado.
+ */
 void roteiro_destroy(Roteiro *r);
 
 #endif

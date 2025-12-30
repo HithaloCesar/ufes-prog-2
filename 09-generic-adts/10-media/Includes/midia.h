@@ -1,30 +1,72 @@
 #ifndef MIDIA_H 
 #define MIDIA_H
 
-// Definição de tipos para funções de impressão e desalocação de dados
-typedef void (*PrintFunction)(void* data);  // Função para imprimir os dados de uma mídia
-typedef void (*FreeFunction)(void* data);   // Função para liberar os dados de uma mídia
+/**
+ * @brief Definição do tipo de funções de callback que irão imprimir determinada Mídia.
+ * 
+ * Essas funções já estão implementadas nos outros TADs, o typedef é apenas uma declaração do ponteiro para
+ * a função de callback genérica, que pode assumir como valor as funções:
+ * 
+ * - livro_print
+ * 
+ * - musica_print
+ * 
+ * - pintura_print
+ * 
+ * @param data Mídia que será impressa, que pode ser Livro, Música ou Pintura.
+ */
+typedef void (*PrintFunction)(void* data);
 
+/**
+ * @brief Definição do tipo de funções de callback que irão liberar determinada Mídia da memória.
+ * 
+ * Essas funções já estão implementadas nos outros TADs, o typedef é apenas uma declaração do ponteiro para
+ * a função de callback genérica, que pode assumir como valor as funções:
+ * 
+ * - livro_destroy
+ * 
+ * - musica_destroy
+ * 
+ * - pintura_destroy
+ * 
+ * @param data Mídia que será liberada, que pode ser Livro, Música ou Pintura.
+ */
+typedef void (*FreeFunction)(void* data);
+
+/**
+ * @brief Estrutura do tipo Mídia, contendo:
+ * 
+ * - Dado : a midia em si (ponteiro void que guarda um Livro, Música ou Pintura)
+ * 
+ * - Print_fn: objeto do tipo PrintFunction que guarda qual a função que imprime a Mídia
+ * 
+ * - Free_fn: objeto do tipo FreeFunction que guarda qual a função que libera a Mídia
+ */
 typedef struct Midia Midia;
 
-// Aloca dinamicamente uma nova estrutura Midia, recebe os dados da mídia,
-// a função de impressão (print_fn) e a função de desalocação (free_fn),
-// e os insere na estrutura de forma adequada. Retorna o ponteiro para a Midia.
-// Parâmetros:
-//  dado    - Ponteiro genérico para os dados da mídia.
-//  print_fn - Função responsável pela impressão dos dados da mídia.
-//  free_fn  - Função responsável pela liberação de memória dos dados da mídia.
-// Retorna: Ponteiro para a Midia recém-criada com os dados e funções associadas.
+/**
+ * @brief Cria uma Mídia alocada dinamicamente, a partir dos parâmetros dados.
+ * 
+ * OBS: Ao usar/chamar a função, print_fn e free_fn devem ser funções já criadas nos outros TADs,
+ * passadas diretamente como argumentos.
+ * @param dado a midia em si (ponteiro void que guarda um Livro, Música ou Pintura).
+ * @param print_fn objeto do tipo PrintFunction que guarda qual a função que imprime a Mídia.
+ * @param free_fn objeto do tipo FreeFunction que guarda qual a função que libera a Mídia.
+ * @return Um objeto do tipo música lido da entrada padrão e devidamente alocado.
+ */
 Midia *midia_construct(void *dado, PrintFunction print_fn, FreeFunction free_fn);
 
-// Chama a função de impressão associada à mídia, exibindo seus dados.
-// Parâmetros:
-//  m - Ponteiro para a Midia a ser impressa.
+/**
+ * @brief Imprime uma Mídia na tela, usando a função de impressão presente na própria Mídia.
+ * @param m Mídia a ser impressa.
+ */
 void midia_print(Midia* m);
 
-// Chama a função de desalocação associada à mídia, liberando os dados alocados.
-// Parâmetros:
-//  m - Ponteiro para a Midia a ser destruída.
+/**
+ * @brief Libera uma Mídia da memória, usando a função de liberação presente na própria Mídia.
+ * @param m Mídia a ser liberada.
+ */
 void midia_destroy(Midia* m);
+
 
 #endif
